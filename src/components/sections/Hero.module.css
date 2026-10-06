@@ -61,7 +61,7 @@
   justify-content: flex-end;
   margin-top: var(--sp-8);
   margin-right: calc(-1 * var(--gutter));
-  margin-bottom: -3.5rem;
+  margin-bottom: -2.25rem;
 }
 
 .burger {
@@ -89,18 +89,15 @@
 
   .visual {
     position: absolute;
-    top: var(--sp-6);
-    bottom: -5rem;
+    bottom: -4.5rem;
     right: 0;
     margin: 0;
     pointer-events: none;
   }
 
   .burger {
-    width: auto;
-    height: 100%;
-    max-width: none;
-    transform: translateX(26%);
+    width: min(60vw, 64rem);
+    transform: translateX(24%);
   }
 }
 

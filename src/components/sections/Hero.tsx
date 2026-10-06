@@ -44,10 +44,10 @@ export function Hero() {
 
         <div className={styles.visual}>
           <Image
-            src="/photos/smash-scontornato.webp"
-            alt="Okay Double: smash burger doppio con cheddar fuso, nella carta OKAY sul vassoio"
-            width={1122}
-            height={1402}
+            src="/photos/smash-vassoio.webp"
+            alt="Okay Double: smash burger doppio con cheddar fuso sul vassoio con la carta OKAY"
+            width={972}
+            height={863}
             priority
             sizes="(min-width: 64rem) 50vw, 110vw"
             className={styles.burger}

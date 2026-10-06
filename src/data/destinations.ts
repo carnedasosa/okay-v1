@@ -13,8 +13,8 @@ export const destinations: Destination[] = [
     line: "Doppio smash schiacciato sulla piastra rovente: bordo croccante, cuore succoso, bun morbido.",
     menuItemId: "okay-double",
     photo: {
-      src: "/photos/double-smash-bacon.jpg",
-      alt: "Smash burger doppio con cheddar fuso nella carta OKAY",
+      src: "/photos/smash-in-mano.jpg",
+      alt: "Smash burger con cheddar fuso, tenuto in mano nella carta",
       brief: "Okay Double · da vicino · luce calda, fondo legno",
     },
   },
