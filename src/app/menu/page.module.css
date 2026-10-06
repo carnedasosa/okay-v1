@@ -92,6 +92,7 @@
 
 .sectionHead h2 {
   font-size: var(--fs-display-l);
+  white-space: pre-line;
 }
 
 .tagline {

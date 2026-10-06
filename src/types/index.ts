@@ -81,6 +81,7 @@ export type MenuItem = {
 
 export type MenuSection = {
   id: string;
+  /** A line break ("\n") splits the big section title; tabs and schema print it on one line. */
   title: string;
   /** Short line printed under the section title. */
   tagline: string;

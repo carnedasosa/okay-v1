@@ -82,7 +82,7 @@ export function menuJsonLd(): JsonLd {
     isPartOf: { "@id": restaurantId },
     hasMenuSection: menu.map((section) => ({
       "@type": "MenuSection",
-      name: section.title,
+      name: section.title.replace(/\s+/g, " "),
       hasMenuItem: section.items.map((item) => ({
         "@type": "MenuItem",
         name: item.name,

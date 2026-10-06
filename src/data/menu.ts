@@ -101,7 +101,8 @@ export const menu: MenuSection[] = [
   },
   {
     id: "starters",
-    title: "Da condividere",
+    // The line break puts "TO" above "SHARE" in the big section title; one line elsewhere.
+    title: "To\nshare",
     tagline: "Oppure no",
     items: [
       {

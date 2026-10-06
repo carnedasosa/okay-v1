@@ -24,7 +24,7 @@ const tagLabels = {
   firma: "Firma",
   veg: "Veggie",
   piccante: "Piccante",
-  "da condividere": "Da condividere",
+  "da condividere": "To share",
 } as const;
 
 export default function MenuPage() {
@@ -59,7 +59,7 @@ export default function MenuPage() {
           <ul role="list" className="container">
             {sections.map((section) => (
               <li key={section.id}>
-                <a href={`#${section.id}`}>{section.title}</a>
+                <a href={`#${section.id}`}>{section.title.replace(/\s+/g, " ")}</a>
               </li>
             ))}
           </ul>
