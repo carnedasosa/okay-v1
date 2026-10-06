@@ -73,6 +73,11 @@ cheddar (only on ink/night), bun (warm ground). Tokens are in `src/styles/tokens
 holds reset and the shared primitives (`.container`, `.caption`, `.marker`, `.pill`, `.signature`,
 `.checker`, `.sr-only`). Each component has a co-located `*.module.css`.
 
+**Logo.** The official logo (owner's SVG, kept in `src/assets/logo/okay-logo.svg`) is drawn inline by
+`components/ui/Wordmark.tsx` from the paths in `components/ui/logoPaths.ts`: ink as supplied on
+paper, or `inverse` (paper letter faces + paper outline) on dark grounds. The same paths feed
+`app/icon.svg`, `app/apple-icon.tsx` and `app/opengraph-image.tsx`. Never recolour or distort it.
+
 **Fonts.** Self-hosted via `next/font/local` in `lib/fonts.ts` (Archivo variable woff2 with wdth/wght,
 roman + italic; Permanent Marker). `app/opengraph-image.tsx` uses separate static `.woff` files in
 `src/assets/og/` because `ImageResponse` cannot read woff2 or variable fonts.

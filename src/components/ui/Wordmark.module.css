@@ -1,42 +1,17 @@
-.wordmark {
-  --wm-fill: var(--c-paper);
-  --wm-line: var(--c-ink);
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 0.1em;
-  line-height: 1;
-  color: var(--wm-line);
+.logo {
+  display: block;
+  width: auto;
+  height: 2.5rem;
+  overflow: visible;
 }
 
-.name {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-stretch: var(--stretch-display);
-  font-size: 2.25rem;
-  line-height: 0.9;
-  color: var(--wm-fill);
-  -webkit-text-stroke: 2px var(--wm-line);
-  paint-order: stroke fill;
-  text-shadow: 3px 3px 0 var(--wm-line);
+.xl {
+  height: auto;
+  width: clamp(15rem, 6rem + 40vw, 40rem);
 }
 
-.reg {
-  font-weight: 900;
-  font-size: 0.875rem;
-}
-
-.xl .name {
-  font-size: clamp(4.5rem, 1rem + 14vw, 11rem);
-  line-height: 0.85;
-  -webkit-text-stroke-width: 3px;
-  text-shadow: 0.04em 0.04em 0 var(--wm-line);
-}
-
-.xl .reg {
-  font-size: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
-}
-
-.inverse {
-  --wm-fill: var(--c-ink);
-  --wm-line: var(--c-paper);
+@media (min-width: 64rem) {
+  .m {
+    height: 2.875rem;
+  }
 }

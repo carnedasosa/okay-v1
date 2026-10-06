@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { logoFull, logoTransform, logoViewBox } from "@/components/ui/logoPaths";
 import { venue } from "@/data/venue";
 
 export const alt =
@@ -35,36 +36,49 @@ export default async function OpenGraphImage() {
       }}
     >
       <div
-        style={{ display: "flex", justifyContent: "space-between", fontSize: 22, letterSpacing: 2 }}
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          fontSize: 22,
+          letterSpacing: 2,
+        }}
       >
+        <svg viewBox={logoViewBox} width={182} height={80}>
+          <g transform={logoTransform} fill={INK}>
+            {logoFull.map((d) => (
+              <path key={d.slice(0, 24)} d={d} />
+            ))}
+          </g>
+        </svg>
         <span>SOCIAL FOOD CLUB · BARI</span>
         <span>VIA BRANCACCIO 18</span>
       </div>
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 36 }}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            fontFamily: "Display",
-            fontSize: 112,
-            lineHeight: 0.9,
-            letterSpacing: -2,
-          }}
-        >
-          <span>DOVE MANGIAMO</span>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          fontFamily: "Display",
+          fontSize: 96,
+          lineHeight: 0.92,
+          letterSpacing: -2,
+        }}
+      >
+        <span>DOVE MANGIAMO</span>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 32 }}>
           <span>STASERA?</span>
+          <span
+            style={{
+              fontFamily: "Marker",
+              fontSize: 88,
+              letterSpacing: 0,
+              color: RED,
+              transform: "rotate(-3deg)",
+            }}
+          >
+            OKAY.
+          </span>
         </div>
-        <span
-          style={{
-            fontFamily: "Marker",
-            fontSize: 96,
-            color: RED,
-            transform: "rotate(-3deg)",
-            marginBottom: 6,
-          }}
-        >
-          OKAY.
-        </span>
       </div>
       <div
         style={{
