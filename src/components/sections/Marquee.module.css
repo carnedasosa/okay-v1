@@ -1,33 +1,31 @@
 .marquee {
-  --mq-bg: var(--c-ketchup);
+  --mq-bg: var(--c-ink);
   --mq-fg: var(--c-paper);
-  --mq-sep: var(--c-mustard);
+  --mq-sep: var(--c-cheddar);
   position: relative;
   z-index: 2;
   overflow: hidden;
   background: var(--mq-bg);
   color: var(--mq-fg);
-  padding-block: clamp(0.6rem, 1.5vw, 1.1rem);
+  border-block: var(--border);
+  padding-block: clamp(0.75rem, 1.5vw, 1.125rem);
 }
 
 .tilt {
-  margin-block: -1.2rem;
-  transform: rotate(-1.6deg) scale(1.03);
-}
-
-.ketchup {
-  --mq-bg: var(--c-ketchup);
-}
-
-.mustard {
-  --mq-bg: var(--c-mustard);
-  --mq-fg: var(--c-ink);
-  --mq-sep: var(--c-ketchup);
+  margin-block: -1rem;
+  transform: rotate(-1.5deg) scale(1.03);
 }
 
 .ink {
   --mq-bg: var(--c-ink);
   --mq-fg: var(--c-paper);
+  --mq-sep: var(--c-cheddar);
+}
+
+.paper {
+  --mq-bg: var(--c-paper);
+  --mq-fg: var(--c-ink);
+  --mq-sep: var(--c-red);
 }
 
 .track {
@@ -44,19 +42,18 @@
   display: flex;
   align-items: center;
   font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: 75%;
-  font-size: clamp(1.75rem, 1rem + 3.5vw, 4rem);
+  font-weight: 900;
+  font-stretch: var(--stretch-display);
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-display);
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .sep {
-  margin-inline: 0.45em;
+  margin-inline: 0.6em;
   color: var(--mq-sep);
-  font-size: 0.6em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -86,7 +83,6 @@
   height: 2.75rem;
   translate: 0 -50%;
   border: 2px solid currentColor;
-  border-radius: 50%;
   background: var(--mq-bg);
   cursor: pointer;
 }
@@ -94,7 +90,7 @@
 .pause:has(:focus-visible) {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
-  box-shadow: 0 0 0 7px var(--c-ink);
+  box-shadow: 0 0 0 6px var(--c-paper);
 }
 
 .pause svg {

@@ -1,60 +1,41 @@
 .visit {
-  background: var(--c-ink-2);
-  color: var(--c-paper);
-  padding-block: var(--section-y);
-}
-
-.visit::after {
-  filter: invert(1);
-  opacity: 0.06;
+  border-top: var(--border);
 }
 
 .grid {
-  display: grid;
-  gap: var(--sp-7);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-12);
+  padding-block: var(--section-y);
 }
 
-.title {
-  font-size: var(--fs-h1);
-  font-stretch: 75%;
-  line-height: 0.82;
-  letter-spacing: var(--ls-mega);
+.copy {
+  flex: 999 1 30rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
 }
 
-.title span {
-  color: var(--c-ketchup);
-}
-
-.sub {
-  margin-top: var(--sp-4);
-  font-size: var(--fs-lead);
-  color: color-mix(in srgb, var(--c-paper) 80%, transparent);
+.head {
+  margin-bottom: 0;
 }
 
 .facts {
   display: grid;
-  gap: var(--sp-5);
-}
-
-.facts > div {
-  display: grid;
-  gap: var(--sp-1);
-  padding-top: var(--sp-3);
-  border-top: 1px solid color-mix(in srgb, var(--c-paper) 22%, transparent);
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--sp-8);
 }
 
 .facts dt {
-  color: var(--c-mustard);
+  margin-bottom: var(--sp-2);
+  color: var(--text-muted);
 }
 
 .facts dd {
-  font-size: var(--fs-h4);
+  font-size: var(--fs-lead);
   font-weight: 700;
-  line-height: 1.2;
-}
-
-.hoursLine {
-  display: block;
+  line-height: 1.45;
 }
 
 .facts address {
@@ -62,26 +43,48 @@
 }
 
 .facts a {
-  text-decoration-color: var(--c-ketchup);
+  text-decoration: none;
+}
+
+.facts a:hover {
+  text-decoration: underline;
+}
+
+.hoursLine {
+  display: block;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-3);
+  gap: var(--sp-4);
 }
 
-@media (min-width: 64rem) {
-  .grid {
-    grid-template-columns: 1.4fr 1fr;
-    align-items: end;
-  }
+.map {
+  flex: 1 1 20rem;
+  min-height: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  border: var(--border);
+  background-color: var(--c-paper-warm);
+  /* Line-drawn street grid, ink only. */
+  background-image:
+    linear-gradient(var(--c-paper-warm) 0 0),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgb(14 14 14 / 0.12) 46px 48px),
+    repeating-linear-gradient(90deg, transparent 0 70px, rgb(14 14 14 / 0.12) 70px 72px);
+  background-size:
+    60% 40%,
+    auto,
+    auto;
+  background-position: center;
+  background-repeat: no-repeat, repeat, repeat;
+  text-decoration: none;
+  transition: box-shadow var(--dur-1) var(--ease-out);
+}
 
-  .facts {
-    grid-template-columns: 1fr;
-  }
-
-  .actions {
-    grid-column: 1 / -1;
-  }
+.map:hover {
+  box-shadow: var(--shadow-lg);
 }

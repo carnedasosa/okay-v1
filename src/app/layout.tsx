@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { venue } from "@/data/venue";
 import { cn } from "@/lib/cn";
-import { bricolage, plexMono } from "@/lib/fonts";
+import { archivo, marker } from "@/lib/fonts";
 import { restaurantJsonLd } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -65,7 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang={siteConfig.lang}
-      className={cn(bricolage.variable, plexMono.variable)}
+      className={cn(archivo.variable, marker.variable)}
       suppressHydrationWarning
     >
       <head>

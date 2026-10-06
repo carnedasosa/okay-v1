@@ -46,3 +46,13 @@ export const marqueeWords = [
   "Asporto",
   "Delivery",
 ];
+
+/**
+ * Graphic posts that alternate with the photos in "Il rullino", like the
+ * Instagram feed: white ground, a shouting title, the signature.
+ */
+export const feedPosts = [
+  { id: "fame", title: "Ho sempre fame" },
+  { id: "male", title: "Quando va tutto male", answer: "→ Okay Double" },
+  { id: "cani", title: "Siamo tutti cani" },
+];

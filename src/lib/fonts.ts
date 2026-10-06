@@ -1,30 +1,33 @@
 import localFont from "next/font/local";
 
 /**
- * Self-hosted fonts (no runtime request to Google): both are OFL licensed,
- * see src/assets/fonts/LICENSE-*.
+ * Self-hosted fonts (no runtime request to Google), from the OKAY design
+ * system. Licences in src/assets/fonts/LICENSE-*.
  *
- * Bricolage Grotesque — variable (wght 200–800, wdth 75–100, opsz 12–96):
- *   condensed + heavy for the display type, regular width for body copy.
- * IBM Plex Mono — the voice of the receipt: labels, prices, stamps.
+ * Archivo — variable (wght 100–900, wdth 62–125): 900 at 115% width for the
+ *   display titles, 400–600 for body copy and captions, 800 italic for the
+ *   "OKAY® Social Food Club Company" signature.
+ * Permanent Marker — the scribbled red word next to a title. One word, never
+ *   a sentence.
  */
-export const bricolage = localFont({
-  src: "../assets/fonts/BricolageGrotesque-Variable.woff2",
-  variable: "--font-bricolage",
-  weight: "200 800",
+export const archivo = localFont({
+  src: [
+    { path: "../assets/fonts/Archivo-Variable.woff2", style: "normal" },
+    { path: "../assets/fonts/Archivo-Variable-Italic.woff2", style: "italic" },
+  ],
+  variable: "--font-archivo",
+  weight: "100 900",
   display: "swap",
   preload: true,
-  declarations: [{ prop: "font-stretch", value: "75% 100%" }],
-  fallback: ["system-ui", "Arial"],
+  declarations: [{ prop: "font-stretch", value: "62% 125%" }],
+  fallback: ["Arial Black", "system-ui", "sans-serif"],
 });
 
-export const plexMono = localFont({
-  src: [
-    { path: "../assets/fonts/ibm-plex-mono-latin-400-normal.woff2", weight: "400" },
-    { path: "../assets/fonts/ibm-plex-mono-latin-500-normal.woff2", weight: "500" },
-  ],
-  variable: "--font-plex-mono",
+export const marker = localFont({
+  src: "../assets/fonts/PermanentMarker-Regular.woff2",
+  variable: "--font-permanent-marker",
+  weight: "400",
   display: "swap",
   preload: false,
-  fallback: ["ui-monospace", "Menlo", "monospace"],
+  fallback: ["cursive"],
 });

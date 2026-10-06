@@ -12,15 +12,15 @@ export default function AppleIcon() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#CC2914",
-        color: "#F3EDE1",
-        fontSize: 92,
+        background: "#FFFFFF",
+        color: "#0E0E0E",
+        fontSize: 96,
         fontWeight: 800,
-        letterSpacing: -6,
+        letterSpacing: -4,
+        textShadow: "5px 5px 0 #E1251B",
       }}
     >
       OK
-      <span style={{ color: "#F5B21B" }}>.</span>
     </div>,
     size,
   );

@@ -1,44 +1,40 @@
 .wrap {
-  display: grid;
-  align-items: center;
-  min-height: 70svh;
-  padding-block: var(--sp-9);
-  background: var(--c-ink);
-  color: var(--c-paper);
+  border-bottom: var(--border);
 }
 
-.wrap::after {
-  filter: invert(1);
-  opacity: 0.07;
-}
-
-.wrap :global(.mono) {
-  color: var(--c-mustard);
-}
-
-.title {
-  font-size: clamp(4rem, 1rem + 14vw, 14rem);
-  font-stretch: 75%;
-  line-height: 0.8;
-  letter-spacing: var(--ls-mega);
-}
-
-.title span {
-  color: var(--c-ketchup);
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  padding-block: clamp(4rem, 2rem + 8vw, 9rem);
 }
 
 .code {
-  margin-top: var(--sp-5);
+  color: var(--text-muted);
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-2) var(--sp-8);
+}
+
+.title {
+  font-size: var(--fs-display-xl);
+}
+
+.titleRow :global(.marker) {
+  font-size: var(--fs-marker-l);
 }
 
 .lead {
-  margin-top: var(--sp-3);
+  max-width: 30rem;
   font-size: var(--fs-lead);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-3);
-  margin-top: var(--sp-6);
+  gap: var(--sp-4);
 }

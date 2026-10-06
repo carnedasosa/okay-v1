@@ -93,10 +93,11 @@ export type Destination = {
   id: string;
   dish: string;
   origin: string;
-  /** Real coordinates of the origin city, printed like a passport stamp. */
-  coords: string;
   line: string;
-  tone: "ketchup" | "mustard" | "pickle" | "ink" | "paper";
+  /** Menu item whose price is shown on the card (see data/menu.ts). */
+  menuItemId?: string;
+  /** Art direction for the photo slot of the card. */
+  photo: Pick<GalleryShot, "alt" | "brief" | "src">;
 };
 
 export type GalleryShot = {
@@ -106,8 +107,8 @@ export type GalleryShot = {
   alt: string;
   /** Art direction for the photo that should replace the placeholder. */
   brief: string;
-  ratio: "1/1" | "4/5" | "3/4" | "16/9" | "9/16" | "3/2";
-  tone: Destination["tone"];
+  ratio: "1/1" | "4/5" | "3/4" | "4/3" | "16/9" | "9/16" | "3/2";
+  tone: "night" | "ink" | "bun" | "warm";
 };
 
 export type ClubRule = {

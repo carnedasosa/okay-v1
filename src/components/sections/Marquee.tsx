@@ -4,7 +4,7 @@ import styles from "./Marquee.module.css";
 
 type MarqueeProps = {
   words: string[];
-  tone?: "ketchup" | "mustard" | "ink";
+  tone?: "ink" | "paper";
   reverse?: boolean;
   tilt?: boolean;
   label?: string;
@@ -17,9 +17,9 @@ type MarqueeProps = {
  */
 export function Marquee({
   words,
-  tone = "ketchup",
+  tone = "ink",
   reverse = false,
-  tilt = true,
+  tilt = false,
   label,
 }: MarqueeProps) {
   const row = (hidden: boolean) => (
@@ -28,7 +28,7 @@ export function Marquee({
         <li key={word}>
           {word}
           <span className={styles.sep} aria-hidden="true">
-            ✶
+            /
           </span>
         </li>
       ))}

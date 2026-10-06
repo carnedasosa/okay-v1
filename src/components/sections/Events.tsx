@@ -17,14 +17,15 @@ export function Events() {
 
   return (
     <section id="serate" className={styles.events} aria-labelledby="events-title">
-      <div className="container">
-        <SectionHead id="events-title" title="Le serate." />
+      <div className="checker" aria-hidden="true" />
+      <div className={cn("container", styles.inner)}>
+        <SectionHead id="events-title" kicker="In calendario" title="Le serate" marker="Okay" />
         <ol role="list" className={styles.list}>
           {upcoming.map((event, index) => {
             const { date, time } = formatEventDate(event.startDate);
             return (
               <Reveal as="li" key={event.id} className={styles.item} delay={index % 3}>
-                <p className={cn("mono", styles.date)}>
+                <p className={cn("caption", styles.date)}>
                   <time dateTime={event.startDate}>
                     {date} · {time}
                   </time>
@@ -34,7 +35,7 @@ export function Events() {
                 {event.ticketUrl && (
                   <ButtonLink
                     href={event.ticketUrl}
-                    variant="mustard"
+                    variant="paper"
                     icon="arrow"
                     iconPosition="end"
                   >

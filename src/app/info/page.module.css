@@ -1,54 +1,50 @@
 .hero {
-  background: var(--c-ketchup);
-  color: var(--c-paper);
-  padding-block: var(--sp-8) var(--sp-7);
+  padding-block: clamp(2.5rem, 1rem + 6vw, 6rem) var(--sp-4);
 }
 
-.title {
-  font-size: clamp(4rem, 1rem + 13vw, 13rem);
-  font-stretch: 75%;
-  line-height: 0.8;
-  letter-spacing: var(--ls-mega);
-}
-
-.title span {
-  color: var(--c-ink);
+.head {
+  margin-bottom: 0;
 }
 
 .layout {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
   gap: var(--sp-8);
-  padding-block: var(--sp-8) var(--section-y);
+  padding-block: var(--sp-12) var(--section-y);
 }
 
 .block {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: var(--sp-4);
-  align-content: start;
-  padding-top: var(--sp-4);
-  border-top: 3px solid var(--c-ink);
+  padding: var(--sp-6);
+  border: var(--border);
+  background: var(--c-paper);
 }
 
 .block > h2 {
-  color: var(--c-ketchup-deep);
-  font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: var(--ls-mono);
+  align-self: stretch;
+  padding-bottom: var(--sp-3);
+  border-bottom: var(--border);
+  font-family: var(--font-body);
+  font-stretch: normal;
+  color: var(--text-muted);
 }
 
 .address {
-  font-style: normal;
   font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: 80%;
-  font-size: var(--fs-h3);
-  line-height: 1;
-  letter-spacing: var(--ls-display);
+  font-weight: 900;
+  font-stretch: var(--stretch-display);
+  font-size: var(--fs-display-s);
+  font-style: normal;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .muted {
+  font-size: var(--fs-body-s);
   color: var(--text-muted);
-  max-width: 44ch;
 }
 
 .muted a {
@@ -58,20 +54,20 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-3);
+  gap: var(--sp-4);
+  padding-top: var(--sp-2);
 }
 
 .hours {
   width: 100%;
-  max-width: 28rem;
   border-collapse: collapse;
-  font-size: var(--fs-lead);
+  border-top: var(--border);
 }
 
 .hours th,
 .hours td {
-  padding-block: var(--sp-2);
-  border-bottom: 1.5px dotted var(--line);
+  padding: var(--sp-3) 0;
+  border-bottom: var(--border);
   text-align: left;
 }
 
@@ -80,50 +76,54 @@
 }
 
 .hours td {
-  font-family: var(--font-mono);
-  font-size: 1rem;
   text-align: right;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
-.closed {
+.closed th,
+.closed td {
+  font-weight: 400;
   color: var(--text-muted);
 }
 
 .today {
-  color: var(--text);
+  background: var(--c-paper-warm);
 }
 
+.today th,
 .today td {
-  font-weight: 500;
+  color: var(--c-ink);
 }
 
 .todayTag {
-  display: inline-block;
-  margin-inline-start: var(--sp-3);
-  padding: 0.2rem 0.5rem;
-  vertical-align: 0.2em;
-  background: var(--c-ketchup);
+  margin-inline-start: var(--sp-2);
+  vertical-align: 0.1em;
+  background: var(--c-ink);
   color: var(--c-paper);
-  font-size: var(--fs-mono-xs);
-  line-height: 1.2;
+}
+
+.contact {
+  background: var(--c-paper-warm);
+  box-shadow: var(--shadow-lg);
 }
 
 .phone {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: 75%;
-  font-size: var(--fs-h2);
-  line-height: 0.9;
-  letter-spacing: var(--ls-display);
+  font-weight: 900;
+  font-stretch: var(--stretch-display);
+  font-size: var(--fs-display-m);
+  line-height: 1;
   text-decoration: none;
 }
 
 .phone:hover {
-  color: var(--c-ketchup);
+  color: var(--c-red);
 }
 
 .details {
-  border-bottom: 1.5px solid var(--line);
+  align-self: stretch;
+  border-bottom: var(--border);
 }
 
 .details summary {
@@ -131,10 +131,9 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--sp-4);
-  padding-block: var(--sp-4);
-  font-size: var(--fs-h4);
+  min-height: 3rem;
+  padding-block: var(--sp-3);
   font-weight: 700;
-  line-height: 1.2;
   cursor: pointer;
   list-style: none;
 }
@@ -145,25 +144,17 @@
 
 .details summary::after {
   content: "+";
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 900;
   font-size: 1.5rem;
-  color: var(--c-ketchup);
-  transition: transform var(--dur-2) var(--ease-out);
+  line-height: 1;
 }
 
 .details[open] summary::after {
-  transform: rotate(45deg);
+  content: "–";
 }
 
 .details p {
   padding-bottom: var(--sp-4);
-  max-width: 50ch;
-  color: var(--text-muted);
-}
-
-@media (min-width: 64rem) {
-  .layout {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--sp-9) var(--sp-8);
-  }
+  font-size: var(--fs-body-s);
 }

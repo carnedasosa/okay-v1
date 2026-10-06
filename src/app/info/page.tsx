@@ -7,6 +7,7 @@ import { breadcrumbJsonLd } from "@/lib/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ButtonLink } from "@/components/ui/Button";
 import { DraftMark } from "@/components/ui/DraftMark";
+import { SectionHead } from "@/components/ui/SectionHead";
 import { HoursTable } from "./HoursTable";
 import styles from "./page.module.css";
 
@@ -41,17 +42,29 @@ export default function InfoPage() {
 
   return (
     <>
-      <section className={cn(styles.hero, "grain")} aria-labelledby="info-title">
+      <section className={styles.hero} aria-labelledby="info-title">
         <div className="container">
-          <h1 id="info-title" className={styles.title}>
-            Ci trovi qui<span>.</span>
-          </h1>
+          <SectionHead
+            as="h1"
+            size="xl"
+            id="info-title"
+            kicker={`${venue.address.neighbourhood}, ${venue.address.city}`}
+            title={
+              <>
+                Dove
+                <br />
+                &amp; quando
+              </>
+            }
+            marker="Stasera?"
+            className={styles.head}
+          />
         </div>
       </section>
 
       <div className={cn("container", styles.layout)}>
         <section className={styles.block} aria-labelledby="where-title">
-          <h2 id="where-title" className="mono">
+          <h2 id="where-title" className="caption">
             Indirizzo
           </h2>
           <address className={styles.address}>
@@ -64,17 +77,17 @@ export default function InfoPage() {
             {venue.geo.lng.toFixed(5)}.
           </p>
           <div className={styles.actions}>
-            <ButtonLink href={venue.maps.google} variant="ink" icon="pin">
+            <ButtonLink href={venue.maps.google} icon="pin">
               Google Maps
             </ButtonLink>
-            <ButtonLink href={venue.maps.apple} variant="outline" icon="pin">
+            <ButtonLink href={venue.maps.apple} variant="paper" icon="pin">
               Apple Mappe
             </ButtonLink>
           </div>
         </section>
 
         <section className={styles.block} aria-labelledby="hours-title">
-          <h2 id="hours-title" className="mono">
+          <h2 id="hours-title" className="caption">
             Orari
             <DraftMark verified={venue.hours.verified} note="Orari da confermare con il locale" />
           </h2>
@@ -90,7 +103,7 @@ export default function InfoPage() {
         </section>
 
         <section className={cn(styles.block, styles.contact)} aria-labelledby="contact-title">
-          <h2 id="contact-title" className="mono">
+          <h2 id="contact-title" className="caption">
             Prenota &amp; ordina
           </h2>
           <p>
@@ -101,20 +114,20 @@ export default function InfoPage() {
           </p>
           <p className={styles.muted}>Prenotazioni e ordini per l&apos;asporto al telefono.</p>
           <div className={styles.actions}>
-            <ButtonLink href={telHref(venue.phone.value)} icon="phone">
+            <ButtonLink href={telHref(venue.phone.value)} variant="red" icon="phone">
               Chiama
             </ButtonLink>
-            <ButtonLink href={venue.ordering.ios} variant="ink" icon="apple">
+            <ButtonLink href={venue.ordering.ios} icon="apple">
               App iOS
             </ButtonLink>
-            <ButtonLink href={venue.ordering.android} variant="ink" icon="play">
+            <ButtonLink href={venue.ordering.android} icon="play">
               App Android
             </ButtonLink>
           </div>
         </section>
 
         <section className={cn(styles.block, styles.faq)} aria-labelledby="faq-title">
-          <h2 id="faq-title" className="mono">
+          <h2 id="faq-title" className="caption">
             Domande frequenti
           </h2>
           {faq.map((item) => (

@@ -1,29 +1,32 @@
+/* Events: checkerboard band on top, dates and times in club blue. */
 .events {
-  background: var(--c-pickle);
-  color: var(--c-paper);
+  background: var(--c-paper);
+}
+
+.inner {
   padding-block: var(--section-y);
 }
 
 .list {
   display: grid;
-  border-top: 1.5px solid color-mix(in srgb, var(--c-paper) 30%, transparent);
+  border-top: var(--border);
 }
 
 .item {
   display: grid;
   gap: var(--sp-3);
   padding-block: var(--sp-6);
-  border-bottom: 1.5px solid color-mix(in srgb, var(--c-paper) 30%, transparent);
+  border-bottom: var(--border);
   justify-items: start;
 }
 
 .date {
-  color: var(--c-mustard);
+  color: var(--c-blue);
+  font-size: var(--fs-body-s);
 }
 
 .title {
-  font-size: var(--fs-h3);
-  font-stretch: 80%;
+  font-size: var(--fs-display-m);
 }
 
 .body {

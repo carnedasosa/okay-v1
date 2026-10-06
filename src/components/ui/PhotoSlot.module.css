@@ -1,45 +1,35 @@
 .slot {
-  --slot-bg: var(--c-ink);
+  --slot-bg: var(--c-night);
   --slot-fg: var(--c-paper);
   position: relative;
-  container-type: inline-size;
   overflow: hidden;
+  border: var(--border);
   background: var(--slot-bg);
   color: var(--slot-fg);
 }
 
-.ketchup {
-  --slot-bg: var(--c-ketchup);
-  --slot-fg: var(--c-paper);
-}
-
-.mustard {
-  --slot-bg: var(--c-mustard);
-  --slot-fg: var(--c-ink);
-}
-
-.pickle {
-  --slot-bg: var(--c-pickle);
+.night {
+  --slot-bg: var(--c-night);
   --slot-fg: var(--c-paper);
 }
 
 .ink {
-  --slot-bg: var(--c-ink-2);
+  --slot-bg: var(--c-ink);
   --slot-fg: var(--c-paper);
 }
 
-.paper {
-  --slot-bg: var(--c-paper-3);
+.bun {
+  --slot-bg: var(--c-bun);
+  --slot-fg: var(--c-ink);
+}
+
+.warm {
+  --slot-bg: var(--c-paper-warm);
   --slot-fg: var(--c-ink);
 }
 
 .image {
   object-fit: cover;
-  transition: transform var(--dur-3) var(--ease-out);
-}
-
-.slot:hover .image {
-  transform: scale(1.03);
 }
 
 .placeholder {
@@ -47,67 +37,16 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2.6rem 1.4rem 1.3rem;
-  background:
-    radial-gradient(
-      120% 90% at 30% 20%,
-      color-mix(in srgb, var(--slot-fg) 14%, transparent),
-      transparent 60%
-    ),
-    var(--slot-bg);
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
 }
 
-.crop {
-  position: absolute;
-  inset: 0.9rem;
-  border: 1px dashed color-mix(in srgb, var(--slot-fg) 35%, transparent);
-}
-
-.glyph {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: 75%;
-  flex: 1;
-  display: grid;
-  place-items: center;
-  font-size: clamp(2.5rem, 30cqi, 7rem);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--slot-fg) 55%, transparent);
-  transition: transform var(--dur-3) var(--ease-out);
-}
-
-.slot:hover .glyph {
-  transform: scale(1.06) rotate(-3deg);
+.tag {
+  border-color: currentColor;
 }
 
 .brief {
-  align-self: stretch;
-  font-size: 0.625rem;
-  line-height: 1.45;
-  letter-spacing: 0.04em;
-  opacity: 0.85;
-}
-
-@container (max-width: 12rem) {
-  .brief {
-    font-size: 0.5625rem;
-  }
-}
-
-.frame {
-  position: absolute;
-  top: 1.3rem;
-  left: 1.4rem;
-  display: flex;
-  gap: 0.35em;
-  font-size: var(--fs-mono-xs);
-  color: var(--slot-fg);
-}
-
-.frame span {
-  opacity: 0.6;
+  max-width: 28ch;
 }

@@ -1,31 +1,53 @@
 .head {
-  display: grid;
-  gap: var(--sp-4);
-  margin-bottom: clamp(var(--sp-6), 4vw, var(--sp-8));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--sp-6);
+  margin-bottom: var(--sp-12);
 }
 
-.title {
-  font-size: var(--fs-h2);
-  font-stretch: 80%;
-  line-height: var(--lh-tight);
-  letter-spacing: var(--ls-mega);
-  max-width: 14ch;
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.kicker {
+  color: var(--text-muted);
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-2) var(--sp-8);
+}
+
+.title.l {
+  font-size: var(--fs-display-l);
+}
+
+.title.xl {
+  font-size: var(--fs-display-xl);
+  line-height: 0.86;
+}
+
+.marker.l {
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.5rem);
+}
+
+.marker.xl {
+  font-size: var(--fs-marker-l);
 }
 
 .intro {
   max-width: 34rem;
   font-size: var(--fs-lead);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
-@media (min-width: 64rem) {
-  .split {
-    grid-template-columns: 1.4fr 1fr;
-    align-items: end;
-    column-gap: var(--sp-8);
-  }
-
-  .split .intro {
-    padding-bottom: 0.6rem;
-  }
+.action {
+  flex-shrink: 0;
 }

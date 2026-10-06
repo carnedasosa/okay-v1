@@ -1,57 +1,53 @@
 import type { Destination } from "@/types";
 
 /**
- * "Cucina internazionale veloce": each signature dish is a stamp on the
- * passport. Dishes come from the public menu; origins and coordinates are
- * real places, used as an editorial device.
+ * "Un piatto, un Paese": the signature dishes shown on the home, each with
+ * the place it comes from. Dishes come from the public menu; prices are read
+ * from data/menu.ts through `menuItemId`, so they stay in one place.
  */
 export const destinations: Destination[] = [
   {
     id: "smash",
-    dish: "Smash burger",
-    origin: "Bari, Picone",
-    coords: "41.1076° N · 16.8621° E",
-    line: "Il nostro timbro di casa. Carne schiacciata sulla piastra rovente, bordo croccante, cheddar che cola.",
-    tone: "ketchup",
+    dish: "Okay Double",
+    origin: "Stati Uniti",
+    line: "Doppio smash schiacciato sulla piastra rovente: bordo croccante, cuore succoso, bun morbido.",
+    menuItemId: "okay-double",
+    photo: {
+      alt: "Okay Double visto da vicino, cheddar fuso sul bordo",
+      brief: "Okay Double · da vicino · luce calda, fondo legno",
+    },
   },
   {
     id: "pastrami",
-    dish: "Pastrami",
-    origin: "Lower East Side, NYC",
-    coords: "40.7150° N · 73.9843° W",
-    line: "Dal deli newyorkese al bun e al toast. Tagliato alto, senza fare complimenti.",
-    tone: "paper",
+    dish: "Pastrami Bun",
+    origin: "New York",
+    line: "Pastrami tagliato alto nel bun. Deli, ma veloce.",
+    menuItemId: "pastrami-bun",
+    photo: {
+      alt: "Pastrami bun tagliato a metà",
+      brief: "Pastrami bun · taglio a metà · dall'alto",
+    },
   },
   {
     id: "gyoza",
     dish: "Gyoza di verdure",
-    origin: "Tokyo",
-    coords: "35.6762° N · 139.6503° E",
-    line: "Piastra, vapore, verdure grigliate. Il giro del mondo comincia da un raviolo.",
-    tone: "pickle",
-  },
-  {
-    id: "nachos",
-    dish: "Nachos & guacamole",
-    origin: "Città del Messico",
-    coords: "19.4326° N · 99.1332° W",
-    line: "Croccanti al centro del tavolo. Si allungano le mani, si fa amicizia.",
-    tone: "mustard",
+    origin: "Giappone",
+    line: "Ravioli alla piastra con verdure grigliate. Da condividere, oppure no.",
+    menuItemId: "gyoza-veg",
+    photo: {
+      alt: "Gyoza di verdure appena tolti dalla piastra",
+      brief: "Gyoza · vapore · controluce",
+    },
   },
   {
     id: "caciocavallo",
     dish: "Patatine caciocavallo & tartufo",
-    origin: "Murge, Puglia",
-    coords: "40.8250° N · 16.4000° E",
-    line: "Il ritorno a casa. Caciocavallo e salsa al tartufo sulle patatine: la frontiera è questa.",
-    tone: "ink",
-  },
-  {
-    id: "cheesecake",
-    dish: "NY Cheesecake",
-    origin: "Brooklyn, NYC",
-    coords: "40.6782° N · 73.9442° W",
-    line: "L'ultimo timbro. C'è anche la versione Okay, per chi non sa scegliere.",
-    tone: "paper",
+    origin: "Puglia",
+    line: "Patatine fritte, caciocavallo e salsa al tartufo. Le patatine si condividono.",
+    menuItemId: "fries-caciocavallo",
+    photo: {
+      alt: "Patatine con caciocavallo e salsa al tartufo viste dall'alto",
+      brief: "Patatine caciocavallo · dall'alto · mani che si allungano",
+    },
   },
 ];

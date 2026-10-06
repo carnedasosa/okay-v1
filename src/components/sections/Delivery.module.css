@@ -1,134 +1,101 @@
+/* Bun ground (warm), ink text on top. */
 .delivery {
-  background: var(--c-ketchup);
-  color: var(--c-paper);
-  padding-block: var(--section-y) var(--sp-7);
-  overflow: hidden;
-}
-
-.grid {
-  display: grid;
-  gap: var(--sp-8);
-}
-
-.copy {
-  display: grid;
-  gap: var(--sp-5);
-  align-content: start;
-}
-
-.title {
-  font-size: var(--fs-h1);
-  font-stretch: 75%;
-  line-height: 0.82;
-  letter-spacing: var(--ls-mega);
-}
-
-.title span {
+  background: var(--c-bun);
   color: var(--c-ink);
 }
 
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-12);
+  padding-block: var(--section-y);
+}
+
+.copy {
+  flex: 999 1 30rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.title {
+  font-size: var(--fs-display-l);
+}
+
 .lead {
-  max-width: 30rem;
+  max-width: 32rem;
   font-size: var(--fs-lead);
-  line-height: 1.35;
+  line-height: 1.45;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-3);
+  gap: var(--sp-4);
+}
+
+.phone {
+  font-weight: 600;
 }
 
 .phone a {
-  color: inherit;
-  text-decoration-color: var(--c-mustard);
+  font-weight: 800;
+}
+
+.card {
+  flex: 1 1 20rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-6);
+  border: var(--border);
+  background: var(--c-paper);
+  box-shadow: var(--shadow-lg);
 }
 
 .steps {
-  position: relative;
   display: grid;
-  gap: var(--sp-4);
-  align-content: center;
 }
 
 .step {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
   gap: var(--sp-4);
-  align-items: center;
-  padding: var(--sp-5);
-  background: var(--c-paper);
-  color: var(--c-ink);
-  box-shadow: 6px 6px 0 var(--c-ink);
-}
-
-.step:nth-child(2) {
-  margin-inline-start: clamp(0rem, 4vw, 3rem);
-}
-
-.step:nth-child(3) {
-  margin-inline-start: clamp(0rem, 8vw, 6rem);
-}
-
-.step h3 {
-  font-size: var(--fs-h4);
-  font-stretch: 85%;
-  line-height: 1.05;
-}
-
-.step p {
-  margin-top: var(--sp-1);
-  font-size: var(--fs-body-s);
-  color: var(--text-muted);
+  align-items: baseline;
+  padding-block: var(--sp-4);
+  border-top: var(--border);
 }
 
 .stepIndex {
-  display: grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: var(--c-mustard);
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.5rem;
+  font-weight: 900;
+  font-stretch: var(--stretch-display);
+  font-size: var(--fs-display-s);
+  line-height: 1;
 }
 
-.stamp {
-  display: none;
-  position: absolute;
-  right: -0.5rem;
-  top: -5.5rem;
-  width: 6.5rem;
-  color: var(--c-mustard);
-  transform: rotate(14deg);
+.step h3 {
+  font-size: 1.125rem;
+  line-height: 1.1;
+}
+
+.step p {
+  font-size: var(--fs-body-s);
+  line-height: 1.43;
 }
 
 .merch {
+  border-top: var(--border);
+  background: var(--c-paper);
+}
+
+.merchInner {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: var(--sp-4);
-  margin-top: var(--sp-9);
-  padding-top: var(--sp-5);
-  border-top: 1.5px dashed color-mix(in srgb, var(--c-paper) 55%, transparent);
-}
-
-.merch strong {
-  font-weight: 700;
-}
-
-@media (min-width: 64rem) {
-  .grid {
-    grid-template-columns: 1.1fr 1fr;
-    align-items: center;
-  }
-
-  .stamp {
-    display: block;
-    width: 9rem;
-    right: -2rem;
-    top: -5rem;
-  }
+  padding-block: var(--sp-6);
 }

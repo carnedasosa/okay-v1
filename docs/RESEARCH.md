@@ -84,6 +84,13 @@ contemporaneo", non formale.
 (internazionale) · senza pretese ma curato. Il nome stesso — una parola-risposta, informale,
 universale — è il tono di voce.
 
+> **Aggiornamento ottobre 2026 — v1.** Le sezioni 4 e 5 descrivono la direzione della prima versione
+> (palette "diner after dark", Bricolage Grotesque, scontrino e timbri), che resta nel repository
+> originale. Questa versione segue il **design system OKAY** ricavato dal profilo Instagram del
+> locale: fondo bianco, inchiostro nero, titoli Archivo 900 maiuscoli e larghi, una sola parola in
+> Permanent Marker rosso, bordi 2px, angoli vivi, ombre piene sfalsate, scacchiera per gli eventi.
+> I token sono in `src/styles/tokens.css`.
+
 ## 4. Direzione creativa: "La comanda del club"
 
 Idea guida: **OKAY è una risposta.** Il sito si apre con la domanda di ogni sera

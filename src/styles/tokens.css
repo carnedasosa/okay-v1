@@ -1,129 +1,110 @@
 /*
- * OKAY design tokens.
+ * OKAY design tokens — from the OKAY design system (the venue's Instagram:
+ * white ground, black ink, shouting titles and one word scribbled in red).
  *
- * Palette — "diner after dark": the colours of the counter, not of a template.
- *   ink      #15130F  la sala di sera, il nero della piastra
- *   paper    #F3EDE1  lo scontrino, la carta del bun
- *   ketchup  #CC2914  colore primario, CTA e timbri
- *   mustard  #F5B21B  accent, evidenziatore, "OKAY"
- *   pickle   #2E5A3C  secondario, profondità
- * Contrast (WCAG): paper on ink 16.6:1 · ink on mustard 10.1:1 ·
- *   paper on ketchup 4.6:1 (AA for text ≥ 16px bold / large) ·
- *   ink on ketchup 4.0:1 (large text only) · paper on pickle 7.6:1.
+ *   ink        #0E0E0E  text, 2px borders, line icons
+ *   paper      #FFFFFF  main ground
+ *   paper-warm #F4F3F0  section ground behind white cards
+ *   smoke      #6B6B6B  captions on paper (5.3:1), never titles
+ *   okay-red   #E1251B  the marker word, CTA, sold out. Once per composition
+ *   club-blue  #1F3BFF  event dates and times
+ *   veggie     #19A34A  ≥24px only · veggie-text #13843B for small labels
+ *   cheddar    #F2B705  accent on ink / night only, never text on paper
+ *   bun        #C98A3E  warm ground, ink text on top
+ *   night      #2A2622  warm dark ground, paper or cheddar text on top
+ *
+ * Rules: paper + ink make 90% of every block, one accent per block. Borders
+ * always 2px ink, square corners (pills only for labels), no soft shadows:
+ * only solid offset shadows, like the 3D extrusion of the logo.
  */
 
 :root {
   /* Brand */
-  --c-ink: #15130f;
-  --c-ink-2: #23201a;
-  --c-ink-3: #3a352c;
-  --c-paper: #f3ede1;
-  --c-paper-2: #e9e1d1;
-  --c-paper-3: #d9cfbb;
-  --c-ketchup: #cc2914;
-  --c-ketchup-deep: #b8220f;
-  --c-mustard: #f5b21b;
-  --c-mustard-soft: #fbd67a;
-  --c-pickle: #2e5a3c;
-  --c-pickle-soft: #4f7f5c;
+  --c-ink: #0e0e0e;
+  --c-paper: #ffffff;
+  --c-paper-warm: #f4f3f0;
+  --c-smoke: #6b6b6b;
+  --c-red: #e1251b;
+  --c-blue: #1f3bff;
+  --c-veggie: #19a34a;
+  --c-veggie-text: #13843b;
+  --c-cheddar: #f2b705;
+  --c-bun: #c98a3e;
+  --c-night: #2a2622;
 
   /* Semantic */
   --bg: var(--c-paper);
-  --surface: var(--c-paper-2);
   --text: var(--c-ink);
-  --text-muted: #5b5446;
-  --text-invert: var(--c-paper);
-  --accent: var(--c-ketchup);
-  --highlight: var(--c-mustard);
-  --line: color-mix(in srgb, var(--c-ink) 18%, transparent);
-  --focus: var(--c-mustard);
-
-  /* Status */
-  --ok: #2e7d4f;
-  --warn: var(--c-mustard);
-  --error: var(--c-ketchup-deep);
+  --text-muted: var(--c-smoke);
+  --accent: var(--c-red);
+  --focus: var(--c-blue);
 
   /* Typography */
-  --font-display: var(--font-bricolage), "Arial Narrow", system-ui, sans-serif;
-  --font-body: var(--font-bricolage), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-display: var(--font-archivo), "Arial Black", sans-serif;
+  --font-body: var(--font-archivo), system-ui, sans-serif;
+  --font-marker: var(--font-permanent-marker), cursive;
 
-  /* Fluid type scale (320px → 1440px) */
-  --fs-mono-xs: 0.6875rem; /* 11px: labels, stamps */
-  --fs-mono-s: 0.8125rem; /* 13px: receipts, meta */
-  --fs-body-s: 0.9375rem;
-  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-  --fs-lead: clamp(1.1875rem, 1.05rem + 0.6vw, 1.5rem);
-  --fs-h4: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
-  --fs-h3: clamp(1.625rem, 1.3rem + 1.4vw, 2.5rem);
-  --fs-h2: clamp(2.5rem, 1.6rem + 4.2vw, 5.5rem);
-  --fs-h1: clamp(3.5rem, 1.8rem + 8vw, 9.5rem);
-  --fs-mega: clamp(6.5rem, 2rem + 24vw, 24rem);
+  /* Type scale: the design system sizes, fluid down to 320px */
+  --fs-caption: 0.75rem; /* 12px, 600, uppercase +8% */
+  --fs-body-s: 0.875rem; /* 14px */
+  --fs-body: 1rem; /* 16px */
+  --fs-lead: 1.125rem; /* 18px */
+  --fs-display-s: clamp(1.25rem, 1rem + 1vw, 1.5rem); /* 24px */
+  --fs-display-m: clamp(2rem, 1.6rem + 1.6vw, 2.5rem); /* 40px */
+  --fs-display-l: clamp(2.5rem, 1.6rem + 3.6vw, 4rem); /* 64px */
+  --fs-display-xl: clamp(2.75rem, 0.6rem + 9vw, 8rem); /* 96–128px */
+  --fs-marker-m: 1.75rem; /* 28px */
+  --fs-marker-l: clamp(2.25rem, 1.6rem + 2.6vw, 4rem); /* 64px */
 
-  --lh-tight: 0.86;
-  --lh-snug: 1.05;
-  --lh-body: 1.55;
+  --lh-display: 0.9;
+  --lh-body: 1.45;
+  --ls-display: -0.01em;
+  --ls-caption: 0.08em;
+  --stretch-display: 115%;
 
-  --ls-mega: -0.025em;
-  --ls-display: -0.03em;
-  --ls-mono: 0.08em;
-
-  /* Spacing — 4px base, named by step */
+  /* Spacing — 4px base */
   --sp-1: 0.25rem;
   --sp-2: 0.5rem;
   --sp-3: 0.75rem;
   --sp-4: 1rem;
-  --sp-5: 1.5rem;
-  --sp-6: 2rem;
-  --sp-7: 3rem;
-  --sp-8: 4rem;
-  --sp-9: 6rem;
-  --sp-10: 8rem;
-  --section-y: clamp(4.5rem, 3rem + 7vw, 10rem);
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-24: 6rem;
+  --section-y: clamp(4rem, 2.5rem + 5vw, 6rem);
 
   /* Grid */
-  --max-w: 90rem; /* 1440px */
-  --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
-  --cols: 4;
+  --max-w: 82rem; /* 1312px content */
+  --gutter: clamp(1rem, 0.4rem + 3vw, 4rem);
 
-  /* Shape: mostly square (receipt, ticket, stamp). Pills only for buttons. */
-  --radius-0: 0;
-  --radius-s: 4px;
+  /* Shape */
+  --border: 2px solid var(--c-ink);
+  --radius-none: 0;
   --radius-pill: 999px;
 
-  /* Elevation: paper on paper */
-  --shadow-paper: 0 1px 0 rgb(21 19 15 / 0.06), 0 12px 24px -12px rgb(21 19 15 / 0.35);
-  --shadow-hard: 6px 6px 0 var(--c-ink);
+  /* Elevation: solid offset only */
+  --shadow-sm: 2px 2px 0 var(--c-ink);
+  --shadow: 4px 4px 0 var(--c-ink);
+  --shadow-lg: 6px 6px 0 var(--c-ink);
 
   /* Motion */
-  --dur-1: 160ms; /* hover, press */
-  --dur-2: 320ms; /* menus, small reveals */
-  --dur-3: 640ms; /* section reveals */
-  --dur-4: 1100ms; /* hero choreography */
+  --dur-1: 120ms;
+  --dur-2: 280ms;
+  --dur-3: 560ms;
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-snap: cubic-bezier(0.34, 1.56, 0.64, 1); /* stamps, small overshoot */
 
   /* Layers */
-  --z-base: 1;
   --z-header: 50;
   --z-actionbar: 60;
-  --z-overlay: 70;
 
-  --header-h: 4rem;
+  --header-h: 4.25rem;
   --actionbar-h: 4.25rem;
-}
-
-@media (min-width: 48rem) {
-  :root {
-    --cols: 8;
-    --header-h: 4.5rem;
-  }
 }
 
 @media (min-width: 64rem) {
   :root {
-    --cols: 12;
+    --header-h: 5rem;
     --actionbar-h: 0px;
   }
 }

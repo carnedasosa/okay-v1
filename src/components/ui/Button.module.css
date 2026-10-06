@@ -1,66 +1,48 @@
+/* Square corners, 2px ink border, solid offset shadow that "presses" on hover. */
 .button {
-  --btn-bg: var(--c-ketchup);
+  --btn-bg: var(--c-ink);
   --btn-fg: var(--c-paper);
-  --btn-border: var(--btn-bg);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6em;
+  gap: 0.625rem;
   min-height: 3rem;
-  padding: 0.8em 1.4em;
-  border: 2px solid var(--btn-border);
-  border-radius: var(--radius-pill);
+  padding: 0 1.5rem;
+  border: var(--border);
+  border-radius: var(--radius-none);
   background: var(--btn-bg);
   color: var(--btn-fg);
-  font-family: var(--font-mono);
-  font-size: var(--fs-mono-s);
-  font-weight: 500;
-  letter-spacing: var(--ls-mono);
+  box-shadow: var(--shadow);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-s);
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
   line-height: 1;
   white-space: nowrap;
   transition:
     transform var(--dur-1) var(--ease-out),
-    box-shadow var(--dur-1) var(--ease-out),
-    background-color var(--dur-1) var(--ease-out),
-    color var(--dur-1) var(--ease-out);
+    box-shadow var(--dur-1) var(--ease-out);
 }
 
 .button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--btn-shadow, var(--c-ink));
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .button:active {
-  transform: translate(0, 0);
-  box-shadow: 0 0 0 transparent;
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--c-ink);
 }
 
 .button svg {
   flex-shrink: 0;
-  transition: transform var(--dur-2) var(--ease-out);
-}
-
-.button:hover svg:last-child:not(:first-child) {
-  transform: translateX(3px);
-}
-
-.l {
-  min-height: 3.5rem;
-  padding: 1em 1.75em;
-  font-size: 0.875rem;
-}
-
-.ketchup {
-  --btn-bg: var(--c-ketchup);
-  --btn-fg: var(--c-paper);
 }
 
 .ink {
   --btn-bg: var(--c-ink);
   --btn-fg: var(--c-paper);
-  --btn-shadow: var(--c-ketchup);
 }
 
 .paper {
@@ -68,31 +50,20 @@
   --btn-fg: var(--c-ink);
 }
 
-.mustard {
-  --btn-bg: var(--c-mustard);
-  --btn-fg: var(--c-ink);
-}
-
-.outline {
-  --btn-bg: transparent;
-  --btn-fg: var(--c-ink);
-  --btn-border: var(--c-ink);
-}
-
-.outline:hover {
-  --btn-bg: var(--c-ink);
+.red {
+  --btn-bg: var(--c-red);
   --btn-fg: var(--c-paper);
-  --btn-shadow: var(--c-mustard);
 }
 
-.outline-light {
-  --btn-bg: transparent;
-  --btn-fg: var(--c-paper);
-  --btn-border: var(--c-paper);
-  --btn-shadow: var(--c-mustard);
+.l {
+  min-height: 3.5rem;
+  padding-inline: 1.75rem;
+  font-size: 0.9375rem;
 }
 
-.outline-light:hover {
-  --btn-bg: var(--c-paper);
-  --btn-fg: var(--c-ink);
+@media (max-width: 30rem) {
+  .button {
+    white-space: normal;
+    text-align: center;
+  }
 }

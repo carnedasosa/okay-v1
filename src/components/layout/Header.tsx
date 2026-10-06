@@ -14,7 +14,6 @@ import styles from "./Header.module.css";
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -24,13 +23,6 @@ export function Header() {
     setLastPath(pathname);
     setOpen(false);
   }
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -68,10 +60,10 @@ export function Header() {
   const isCurrent = (href: string) => !href.includes("#") && pathname === href;
 
   return (
-    <header className={cn(styles.header, scrolled && styles.scrolled, open && styles.open)}>
+    <header className={cn(styles.header, open && styles.open)}>
       <div className={cn("container", styles.bar)}>
         <Link href="/" className={styles.brand} aria-label="OKAY Social Food Club, home">
-          <Wordmark withClaim />
+          <Wordmark />
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Principale">
@@ -91,10 +83,14 @@ export function Header() {
         </nav>
 
         <a href={telHref(venue.phone.value)} className={styles.call}>
-          <Icon name="phone" size={16} />
+          <Icon name="phone" size={18} />
           <span>Prenota</span>
           <span className={styles.callNumber}>{localPhone(venue.phone.value)}</span>
         </a>
+
+        <Link href="/#a-casa" className={styles.order}>
+          Ordina ora
+        </Link>
 
         <button
           ref={toggleRef}
@@ -141,14 +137,14 @@ export function Header() {
           </ol>
         </nav>
         <div className={styles.panelFoot}>
-          <p className="mono">
+          <p className="caption">
             {venue.address.street}
             <br />
             {venue.address.postalCode} {venue.address.city} · {venue.address.neighbourhood}
           </p>
           <a
             href={venue.social.instagram.url}
-            className={cn("mono", styles.panelSocial)}
+            className={cn("caption", styles.panelSocial)}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,86 +1,66 @@
 .voices {
-  overflow-x: clip;
-  background: var(--c-paper);
-  padding-block: var(--section-y);
+  background: var(--c-paper-warm);
+  border-block: var(--border);
 }
 
 .inner {
-  display: grid;
-  gap: var(--sp-7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-8);
+  padding-block: var(--section-y);
+  text-align: center;
 }
 
 .kicker {
-  color: var(--c-ketchup-deep);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-stretch: normal;
+  color: var(--text-muted);
 }
 
 .quote {
-  display: grid;
-  gap: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-6);
 }
 
-.quote blockquote p {
+.quote p {
+  max-width: 16ch;
   font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: 80%;
-  font-size: clamp(3rem, 1rem + 9vw, 10rem);
-  line-height: 0.88;
-  letter-spacing: -0.025em;
+  font-weight: 900;
+  font-stretch: var(--stretch-display);
+  font-size: clamp(2.5rem, 1.2rem + 5.4vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: var(--ls-display);
   text-transform: uppercase;
   text-wrap: balance;
 }
 
-.mark {
-  color: var(--c-ketchup);
-}
-
-.quote figcaption a {
-  text-decoration-color: var(--c-ketchup);
-}
-
-.quote figcaption a:hover {
-  color: var(--c-ketchup-deep);
+.quote figcaption {
+  color: var(--text-muted);
 }
 
 .themes {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: var(--sp-4);
 }
 
 .themesLabel {
-  font-size: var(--fs-lead);
-  font-weight: 600;
+  font-size: var(--fs-body-s);
 }
 
 .chips {
   display: flex;
   flex-wrap: wrap;
-  /* Tilted chips need room or their corners collide. */
-  gap: var(--sp-3);
+  justify-content: center;
+  gap: var(--sp-2);
+  max-width: 52rem;
 }
 
 .chips li {
-  padding: 0.5rem 1rem;
-  border: 2px solid var(--c-ink);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-mono);
-  font-size: var(--fs-mono-s);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.chips li:nth-child(3n + 1) {
-  background: var(--c-mustard);
-}
-
-.chips li:nth-child(3n + 2) {
-  transform: rotate(-2deg);
-}
-
-@media (min-width: 64rem) {
-  .themes {
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: var(--sp-6);
-  }
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--c-paper);
 }

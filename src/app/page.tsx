@@ -3,8 +3,8 @@ import { Club } from "@/components/sections/Club";
 import { Delivery } from "@/components/sections/Delivery";
 import { Events } from "@/components/sections/Events";
 import { Hero } from "@/components/sections/Hero";
+import { Highlights } from "@/components/sections/Highlights";
 import { Marquee } from "@/components/sections/Marquee";
-import { Passport } from "@/components/sections/Passport";
 import { Rullino } from "@/components/sections/Rullino";
 import { SmashAnatomy } from "@/components/sections/SmashAnatomy";
 import { Visit } from "@/components/sections/Visit";
@@ -12,7 +12,7 @@ import { Voices } from "@/components/sections/Voices";
 
 /**
  * Home narrative:
- * the question (hero) → what's on the plate (passport) → the signature
+ * the question (hero) → what's on the plate (highlights) → the signature
  * (smash) → the people (club) → proof (voices) → the vibe (rullino)
  * → at home (delivery) → [nights, when announced] → come by (visit).
  */
@@ -24,13 +24,13 @@ export default function HomePage() {
         words={marqueeWords}
         label="Smash, pastrami, gyoza, nachos, caciocavallo e tartufo, cheesecake, birre, asporto, delivery"
       />
-      <Passport />
+      <Highlights />
       <SmashAnatomy />
       <Club />
       <Voices />
       <Marquee
         words={["Tagga @okay.bari", "Social food club", "Bari", "Picone"]}
-        tone="mustard"
+        tone="paper"
         reverse
         label="Tagga @okay.bari"
       />

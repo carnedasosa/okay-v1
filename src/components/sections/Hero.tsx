@@ -1,71 +1,63 @@
 import { venue } from "@/data/venue";
 import { cn } from "@/lib/cn";
-import { telHref } from "@/lib/format";
-import { PunctuationCycle } from "@/components/motion/PunctuationCycle";
 import { ButtonLink } from "@/components/ui/Button";
-import { Stamp } from "@/components/ui/Stamp";
-import { Receipt } from "./Receipt";
+import { PhotoSlot } from "@/components/ui/PhotoSlot";
 import styles from "./Hero.module.css";
-
-const order = [
-  { qty: 1, label: "Bacon burger double" },
-  { qty: 1, label: "Pastrami toast" },
-  { qty: 1, label: "Patatine caciocavallo & tartufo" },
-  { qty: 1, label: "Gyoza di verdure" },
-  { qty: 2, label: "Cheesecake" },
-];
 
 export function Hero() {
   return (
-    <section className={cn(styles.hero, "grain")} aria-labelledby="hero-title">
+    <section className={styles.hero} aria-labelledby="hero-title">
       <div className={cn("container", styles.inner)}>
-        <p className={cn("mono", styles.topline)}>
-          <span>Social Food Club</span>
-          <span aria-hidden="true">✶</span>
-          <span>Bari · {venue.address.neighbourhood}</span>
-          <span aria-hidden="true" className={styles.hideSm}>
-            ✶
-          </span>
-          <span className={styles.hideSm}>Via Brancaccio 18</span>
-        </p>
+        <div className={styles.copy}>
+          <p className={cn("caption", styles.kicker)}>
+            Social food club · {venue.address.neighbourhood}, {venue.address.city}
+          </p>
 
-        <h1 id="hero-title" className={styles.title}>
-          <span className={styles.question}>«Dove mangiamo stasera?»</span>
-          <span className={styles.mega}>
-            <span className={styles.word}>OKAY</span>
-            <PunctuationCycle />
-          </span>
-          <span className="sr-only">Bari Social Food Club</span>
-        </h1>
+          <h1 id="hero-title" className={styles.title}>
+            Dove
+            <br />
+            mangiamo
+            <br />
+            stasera?
+            <span className="sr-only"> OKAY Bari Social Food Club.</span>
+          </h1>
 
-        <div className={styles.bottom}>
-          <div className={styles.copy}>
+          <div className={styles.answer}>
+            <span className={cn("marker", styles.marker)} aria-hidden="true">
+              Okay.
+            </span>
             <p className={styles.lead}>
-              Smash burger, pastrami, gyoza, nachos. <strong>Cucina internazionale veloce</strong>{" "}
-              in Via Brancaccio 18, e la risposta alla domanda di ogni sera.
+              Smash burger, pastrami, gyoza, nachos e cheesecake. Cucina internazionale veloce: in
+              sala, da asporto o a casa con l&apos;app {venue.ordering.appName}.
             </p>
-            <div className={styles.actions}>
-              <ButtonLink href={telHref(venue.phone.value)} icon="phone" size="l">
-                Prenota un tavolo
-              </ButtonLink>
-              <ButtonLink
-                href="/menu"
-                variant="outline-light"
-                icon="arrow"
-                iconPosition="end"
-                size="l"
-              >
-                Il menu
-              </ButtonLink>
-            </div>
           </div>
 
-          <div className={styles.ticket}>
-            <Receipt number="018" lines={order} total="OKAY." />
-            <div className={styles.stamp}>
-              <Stamp text="Social food club ✶ Bari ✶ cucina internazionale veloce ✶ " center="OK" />
-            </div>
+          <div className={styles.actions}>
+            <ButtonLink href="/menu" icon="arrow" iconPosition="end" size="l">
+              Guarda il menu
+            </ButtonLink>
+            <ButtonLink href="/info" variant="paper" size="l">
+              Dove siamo
+            </ButtonLink>
           </div>
+        </div>
+
+        <div className={styles.visual}>
+          <PhotoSlot
+            shot={{
+              id: "hero",
+              alt: "Okay Double visto da vicino, cheddar fuso sul bordo",
+              brief: "Okay Double · da vicino · luce calda, fondo legno",
+              ratio: "4/5",
+              tone: "night",
+            }}
+            priority
+            sizes="(min-width: 64rem) 40vw, 90vw"
+            className={styles.photo}
+          />
+          <p className={cn("caption", styles.photoLabel)} aria-hidden="true">
+            La firma · Okay Double
+          </p>
         </div>
       </div>
     </section>

@@ -14,7 +14,7 @@ Smash burger e cucina internazionale veloce, in sala, da asporto e a domicilio c
 | **TypeScript strict**                    | Contenuti tipizzati: un dato mancante o sbagliato in `src/data` è un errore di build, non un bug in produzione.                                                                                                  |
 | **CSS Modules + design token CSS**       | Nessun framework CSS: stile scoped per componente, token globali in `src/styles/tokens.css`. Zero runtime.                                                                                                       |
 | **Motion con CSS + browser API**         | IntersectionObserver, scroll progress su custom property, animazioni CSS. Nessuna libreria di animazione (−40/60 KB di JS).                                                                                      |
-| **Font self-hosted** (`next/font/local`) | Bricolage Grotesque variabile + IBM Plex Mono, licenza OFL: niente richieste a Google, niente layout shift.                                                                                                      |
+| **Font self-hosted** (`next/font/local`) | Archivo variabile + Permanent Marker (design system OKAY), licenze OFL/Apache: niente richieste a Google.                                                                                                        |
 
 Dipendenze runtime: solo `next`, `react`, `react-dom`.
 
@@ -85,7 +85,7 @@ src/
 │   └── globals.css           # importa token + base
 ├── components/
 │   ├── layout/               # Header (+ menu mobile), Footer, ActionBar (CTA mobile fissa)
-│   ├── sections/             # Sezioni della home (Hero, Passport, SmashAnatomy, Club, …)
+│   ├── sections/             # Sezioni della home (Hero, Highlights, SmashAnatomy, Club, …)
 │   ├── ui/                   # Primitive: Button, Icon, Stamp, PhotoSlot, SectionHead, Wordmark, DraftMark
 │   ├── motion/               # Reveal, PunctuationCycle
 │   └── seo/                  # JsonLd
@@ -100,7 +100,7 @@ src/
 Principi:
 
 - **Server Components di default.** Sono client solo i componenti con interazione o motion
-  (Header, Reveal, PunctuationCycle, Passport, SmashAnatomy).
+  (Header, Reveal, HoursTable).
 - **Progressive enhancement:** senza JavaScript tutto il contenuto è visibile; le animazioni
   di ingresso si attivano solo con la classe `.js` sull'`<html>`.
 - **Motion senza re-render:** lo scroll scrive custom property CSS (`--p`) via

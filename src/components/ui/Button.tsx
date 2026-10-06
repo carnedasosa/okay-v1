@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 import { Icon, type IconName } from "./Icon";
 import styles from "./Button.module.css";
 
-type Variant = "ketchup" | "ink" | "paper" | "mustard" | "outline" | "outline-light";
+type Variant = "ink" | "paper" | "red";
 
 type ButtonLinkProps = Omit<ComponentProps<typeof Link>, "className"> & {
   variant?: Variant;
@@ -23,7 +23,7 @@ const isExternal = (href: ComponentProps<typeof Link>["href"]) =>
  * (tel:, https:) render a plain anchor; https links open in a new tab.
  */
 export function ButtonLink({
-  variant = "ketchup",
+  variant = "ink",
   size = "m",
   icon,
   iconPosition = "start",

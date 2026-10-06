@@ -57,27 +57,24 @@ art-directed placeholders; setting `src: "/photos/…"` (file in `public/photos/
 **Rendering & motion.**
 
 - Server Components by default; client components are only Header (mobile menu with focus trap),
-  `motion/Reveal`, `motion/PunctuationCycle`, `sections/Passport`, `sections/SmashAnatomy` and
-  `app/info/HoursTable` (marks today's row via `hooks/useToday`, Europe/Rome, browser-only so the
+  `motion/Reveal` and `app/info/HoursTable` (marks today's row via `hooks/useToday`, Europe/Rome, browser-only so the
   prerendered HTML has no "today").
 - Entry animations only apply under the `.js` class set on `<html>` by an inline script in
   `app/layout.tsx`, so content is visible without JS.
-- Scroll-linked effects don't re-render React: `hooks/useScrollProgress` writes a 0→1 CSS custom
-  property (`--p`) via rAF and CSS does the math (Passport's pinned horizontal scroll on ≥64rem,
-  SmashAnatomy's exploding SVG layers).
 - Every animation must degrade under `prefers-reduced-motion` (global override in `styles/base.css`
   plus explicit static states in components).
-- Hero receipt/LCP: on mobile the receipt is the LCP element, so its print animation is desktop-only
-  and the giant hero word is never hidden on load — keep it that way for Lighthouse.
 
-**Styling.** Design tokens (palette ink/paper/ketchup/mustard/pickle, fluid type scale, spacing,
-motion durations/easings, breakpoints 48rem/64rem) are in `src/styles/tokens.css`; `base.css` holds
-reset and a few globals (`.container`, `.mono`, `.grain`, `.sr-only`). Each component has a
-co-located `*.module.css`. Contrast was measured: paper text on ketchup passes AA only with the
-current `#CC2914`; mustard on ketchup is decorative only, never text.
+**Styling.** The look follows the OKAY design system (Claude design system artifact "OKAY", from the
+venue's Instagram): white paper + ink black for 90% of every block, display titles in Archivo 900 at
+115% width, uppercase, plus ONE word in Permanent Marker red (`.marker`, never a sentence). Borders
+are always 2px ink, corners square (pills only for labels), no soft shadows: only solid offset
+shadows (`--shadow*`). One accent per block: okay-red, club-blue (event dates), veggie-green,
+cheddar (only on ink/night), bun (warm ground). Tokens are in `src/styles/tokens.css`; `base.css`
+holds reset and the shared primitives (`.container`, `.caption`, `.marker`, `.pill`, `.signature`,
+`.checker`, `.sr-only`). Each component has a co-located `*.module.css`.
 
-**Fonts.** Self-hosted via `next/font/local` in `lib/fonts.ts` (Bricolage Grotesque variable woff2
-with wdth/wght/opsz, IBM Plex Mono). `app/opengraph-image.tsx` uses separate static `.woff` files in
+**Fonts.** Self-hosted via `next/font/local` in `lib/fonts.ts` (Archivo variable woff2 with wdth/wght,
+roman + italic; Permanent Marker). `app/opengraph-image.tsx` uses separate static `.woff` files in
 `src/assets/og/` because `ImageResponse` cannot read woff2 or variable fonts.
 
 **SEO.** Per-page metadata via `lib/metadata.pageMetadata()` (keeps canonical/OG/Twitter in sync);

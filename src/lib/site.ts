@@ -13,7 +13,7 @@ export const siteConfig = {
    * On by default; set NEXT_PUBLIC_DRAFT_MARKERS=false once verified.
    */
   draftMarkers: process.env.NEXT_PUBLIC_DRAFT_MARKERS !== "false",
-  themeColor: "#15130F",
+  themeColor: "#0E0E0E",
 } as const;
 
 export function absoluteUrl(path = "/"): string {

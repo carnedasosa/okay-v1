@@ -31,7 +31,7 @@ export function HoursTable({ schedule }: HoursTableProps) {
                 {isToday && (
                   <>
                     {" "}
-                    <span className={cn("mono", styles.todayTag)}>Oggi</span>
+                    <span className={cn("pill", styles.todayTag)}>Oggi</span>
                   </>
                 )}
               </th>
