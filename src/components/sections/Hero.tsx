@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { venue } from "@/data/venue";
 import { cn } from "@/lib/cn";
 import { ButtonLink } from "@/components/ui/Button";
-import { PhotoSlot } from "@/components/ui/PhotoSlot";
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -43,22 +43,15 @@ export function Hero() {
         </div>
 
         <div className={styles.visual}>
-          <PhotoSlot
-            shot={{
-              id: "hero",
-              src: "/photos/double-smash-bacon.jpg",
-              alt: "Smash burger doppio con cheddar fuso nella carta OKAY",
-              brief: "Okay Double · da vicino · luce calda, fondo legno",
-              ratio: "4/5",
-              tone: "night",
-            }}
+          <Image
+            src="/photos/smash-scontornato.webp"
+            alt="Okay Double: smash burger doppio con cheddar fuso, nella carta OKAY sul vassoio"
+            width={1122}
+            height={1402}
             priority
-            sizes="(min-width: 64rem) 40vw, 90vw"
-            className={styles.photo}
+            sizes="(min-width: 64rem) 50vw, 110vw"
+            className={styles.burger}
           />
-          <p className={cn("caption", styles.photoLabel)} aria-hidden="true">
-            La firma · Okay Double
-          </p>
         </div>
       </div>
     </section>

@@ -1,22 +1,25 @@
+/* The cut-out burger is cropped by the right edge of the screen and slides
+   under the marquee band below (which sits on top with z-index 2). */
 .hero {
+  position: relative;
   background: var(--c-paper);
+  overflow-x: clip;
 }
 
 .inner {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: var(--sp-12);
-  padding-block: clamp(2.5rem, 1rem + 6vw, 6rem) var(--sp-16);
+  flex-direction: column;
+  padding-block: clamp(2.5rem, 1rem + 6vw, 6rem) 0;
 }
 
 .copy {
-  flex: 999 1 34rem;
-  min-width: 0;
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: var(--sp-8);
+  min-width: 0;
 }
 
 .kicker {
@@ -24,8 +27,7 @@
 }
 
 .title {
-  /* Sized to the copy column (the photo takes the rest): "MANGIAMO" must fit. */
-  font-size: clamp(2.75rem, 0.6rem + 7vw, 7.5rem);
+  font-size: clamp(2.75rem, 0.6rem + 7vw, 7rem);
   line-height: 0.88;
 }
 
@@ -52,27 +54,71 @@
   gap: var(--sp-4);
 }
 
+/* Phone/tablet: under the copy, big, bleeding off the right edge. */
 .visual {
-  flex: 1 1 22rem;
-  min-width: 0;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
+  justify-content: flex-end;
+  margin-top: var(--sp-8);
+  margin-right: calc(-1 * var(--gutter));
+  margin-bottom: -3.5rem;
 }
 
-.photo {
-  flex: 1;
-  min-height: 24rem;
-  box-shadow: var(--shadow-lg);
+.burger {
+  width: min(115vw, 40rem);
+  max-width: none;
+  height: auto;
+  transform: translateX(24%);
 }
 
-.photoLabel {
-  color: var(--text-muted);
+@media (min-width: 64rem) {
+  .inner {
+    min-height: clamp(40rem, 56vw, 54rem);
+    justify-content: center;
+    padding-block: var(--sp-16) var(--sp-24);
+  }
+
+  .copy {
+    max-width: 58%;
+  }
+
+  .title {
+    /* "MANGIAMO" must fit the 58% copy column. */
+    font-size: clamp(4rem, 0.4rem + 5.6vw, 7rem);
+  }
+
+  .visual {
+    position: absolute;
+    top: var(--sp-6);
+    bottom: -5rem;
+    right: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .burger {
+    width: auto;
+    height: 100%;
+    max-width: none;
+    transform: translateX(26%);
+  }
+}
+
+/* Very wide screens: the container no longer reaches the edge, keep the
+   burger anchored to the viewport's right side. */
+@media (min-width: 90rem) {
+  .visual {
+    right: calc((100vw - var(--max-w) - 2 * var(--gutter)) / -2);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   :global(.js) .marker {
     animation: scribble var(--dur-3) var(--ease-out) 200ms both;
+  }
+
+  :global(.js) .burger {
+    animation: slideIn var(--dur-3) var(--ease-out) both;
   }
 }
 
@@ -80,5 +126,12 @@
   from {
     opacity: 0;
     transform: rotate(-12deg) scale(1.3);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    translate: 8% 0;
   }
 }
