@@ -50,9 +50,9 @@ details, so uncertain values are wrapped as `Verifiable<T>` (`{ value, verified,
 (`data/navigation.ts`) and `Event` JSON-LD — all appear when an upcoming event is added. Past events
 drop out at build time.
 
-**Photos.** No real images are bundled (copyright / not yet supplied). `data/gallery.ts` entries are
-art-directed placeholders; setting `src: "/photos/…"` (file in `public/photos/`) switches
-`PhotoSlot` to `next/image`.
+**Photos.** The venue's photos (supplied by the owner) are optimized JPEGs in `public/photos/`
+(max 1600px, ~300 KB) and are referenced by `src` in `data/gallery.ts`, `data/destinations.ts` and
+the hero. An entry without `src` falls back to `PhotoSlot`'s placeholder with the photo brief.
 
 **Rendering & motion.**
 

@@ -1,61 +1,69 @@
 import type { GalleryShot } from "@/types";
 
 /**
- * "Il rullino": photo slots with an art-direction brief.
+ * "Il rullino": the photos of the venue, in feed order (the home shows the
+ * first five, alternated with graphic posts).
  *
- * No photo is bundled: the official pictures live on @okay.bari and need the
- * owner's files and permission. Drop a file in /public/photos and set `src`
- * to replace the placeholder (e.g. src: "/photos/smash-double.jpg").
+ * Files live in /public/photos. An entry without `src` renders as an
+ * art-directed placeholder with its brief; add the file and set `src` to
+ * replace it.
  */
 export const gallery: GalleryShot[] = [
   {
-    id: "smash-macro",
-    alt: "Smash burger doppio con bacon visto di lato, cheddar fuso sul bordo",
-    brief: "Smash doppio bacon · macro di lato · flash diretto",
+    id: "brunch",
+    src: "/photos/brunch-affollato.jpg",
+    alt: "Tavolo pieno da OKAY visto dall'alto: piatti da brunch con uova, salsicce e bacon, birre e mani degli amici",
+    brief: "Brunch · tavolo pieno · dall'alto",
     ratio: "4/5",
     tone: "night",
   },
   {
-    id: "sala",
-    alt: "La sala di OKAY la sera, tavoli pieni",
-    brief: "Sala la sera · grandangolo · luce calda del locale",
-    ratio: "3/2",
-    tone: "ink",
-  },
-  {
-    id: "pastrami",
-    alt: "Pastrami toast tagliato a metà",
-    brief: "Pastrami toast · taglio a metà · dall'alto",
-    ratio: "1/1",
-    tone: "warm",
-  },
-  {
-    id: "mani",
-    alt: "Mani di amici che prendono patatine dal centro del tavolo",
-    brief: "Patatine caciocavallo · mani che si incrociano",
-    ratio: "3/4",
-    tone: "bun",
-  },
-  {
     id: "staff",
-    alt: "Lo staff di OKAY dietro al bancone",
+    src: "/photos/staff-pass.jpg",
+    alt: "Lo staff di OKAY dietro al bancone che ride, uno parla in un megafono",
     brief: "Staff al pass · ritratto mosso · t-shirt OKAY",
     ratio: "4/5",
     tone: "night",
   },
   {
-    id: "insegna",
-    alt: "L'ingresso di OKAY in Via Brancaccio di sera",
-    brief: "Ingresso su Via Brancaccio · ora blu · insegna accesa",
-    ratio: "9/16",
+    id: "pastrami",
+    src: "/photos/pastrami.jpg",
+    alt: "Pastrami toast tagliato a metà e impilato, con insalata e salsa",
+    brief: "Pastrami toast · taglio a metà",
+    ratio: "4/5",
+    tone: "warm",
+  },
+  {
+    id: "locale",
+    src: "/photos/locale.jpg",
+    alt: "L'angolo OKAY Press nella sala: colonna con riviste e insegna luminosa",
+    brief: "Sala · OKAY Press · luce calda",
+    ratio: "4/5",
     tone: "ink",
   },
   {
     id: "gyoza",
-    alt: "Gyoza di verdure appena tolti dalla piastra",
-    brief: "Gyoza · vapore · controluce",
-    ratio: "1/1",
+    src: "/photos/gyoza.jpg",
+    alt: "Gyoza alla piastra con salsa e anelli di cipolla, visti dall'alto sulla tovaglietta OKAY",
+    brief: "Gyoza · dall'alto",
+    ratio: "4/5",
     tone: "night",
+  },
+  {
+    id: "smash-macro",
+    src: "/photos/double-smash-bacon.jpg",
+    alt: "Smash burger doppio con cheddar fuso nella carta OKAY",
+    brief: "Smash doppio · da vicino",
+    ratio: "4/5",
+    tone: "night",
+  },
+  {
+    id: "patatine",
+    src: "/photos/patatine-caciocavallo.jpg",
+    alt: "Patatine fritte coperte di formaggio fuso nella carta OKAY",
+    brief: "Patatine caciocavallo · da vicino",
+    ratio: "4/5",
+    tone: "bun",
   },
   {
     id: "cheesecake",

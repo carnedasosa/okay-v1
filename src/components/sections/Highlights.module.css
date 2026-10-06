@@ -49,7 +49,7 @@
 }
 
 .dish {
-  font-size: var(--fs-display-s);
+  font-size: clamp(1.125rem, 0.6rem + 0.9vw, 1.5rem);
   line-height: 1;
 }
 

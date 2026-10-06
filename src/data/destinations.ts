@@ -13,19 +13,21 @@ export const destinations: Destination[] = [
     line: "Doppio smash schiacciato sulla piastra rovente: bordo croccante, cuore succoso, bun morbido.",
     menuItemId: "okay-double",
     photo: {
-      alt: "Okay Double visto da vicino, cheddar fuso sul bordo",
+      src: "/photos/double-smash-bacon.jpg",
+      alt: "Smash burger doppio con cheddar fuso nella carta OKAY",
       brief: "Okay Double · da vicino · luce calda, fondo legno",
     },
   },
   {
     id: "pastrami",
-    dish: "Pastrami Bun",
+    dish: "Pastrami Toast",
     origin: "New York",
-    line: "Pastrami tagliato alto nel bun. Deli, ma veloce.",
-    menuItemId: "pastrami-bun",
+    line: "Il pastrami del deli newyorkese, nel toast croccante. Deli, ma veloce.",
+    menuItemId: "pastrami-toast",
     photo: {
-      alt: "Pastrami bun tagliato a metà",
-      brief: "Pastrami bun · taglio a metà · dall'alto",
+      src: "/photos/pastrami.jpg",
+      alt: "Pastrami toast tagliato a metà e impilato, con insalata e salsa",
+      brief: "Pastrami toast · taglio a metà",
     },
   },
   {
@@ -35,8 +37,9 @@ export const destinations: Destination[] = [
     line: "Ravioli alla piastra con verdure grigliate. Da condividere, oppure no.",
     menuItemId: "gyoza-veg",
     photo: {
-      alt: "Gyoza di verdure appena tolti dalla piastra",
-      brief: "Gyoza · vapore · controluce",
+      src: "/photos/gyoza.jpg",
+      alt: "Gyoza alla piastra con salsa, visti dall'alto",
+      brief: "Gyoza · dall'alto",
     },
   },
   {
@@ -46,8 +49,9 @@ export const destinations: Destination[] = [
     line: "Patatine fritte, caciocavallo e salsa al tartufo. Le patatine si condividono.",
     menuItemId: "fries-caciocavallo",
     photo: {
-      alt: "Patatine con caciocavallo e salsa al tartufo viste dall'alto",
-      brief: "Patatine caciocavallo · dall'alto · mani che si allungano",
+      src: "/photos/patatine-caciocavallo.jpg",
+      alt: "Patatine fritte coperte di caciocavallo fuso",
+      brief: "Patatine caciocavallo · da vicino",
     },
   },
 ];

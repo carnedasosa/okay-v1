@@ -46,7 +46,8 @@ export function Hero() {
           <PhotoSlot
             shot={{
               id: "hero",
-              alt: "Okay Double visto da vicino, cheddar fuso sul bordo",
+              src: "/photos/double-smash-bacon.jpg",
+              alt: "Smash burger doppio con cheddar fuso nella carta OKAY",
               brief: "Okay Double · da vicino · luce calda, fondo legno",
               ratio: "4/5",
               tone: "night",

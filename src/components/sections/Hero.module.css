@@ -24,7 +24,8 @@
 }
 
 .title {
-  font-size: var(--fs-display-xl);
+  /* Sized to the copy column (the photo takes the rest): "MANGIAMO" must fit. */
+  font-size: clamp(2.75rem, 0.6rem + 7vw, 7.5rem);
   line-height: 0.88;
 }
 
